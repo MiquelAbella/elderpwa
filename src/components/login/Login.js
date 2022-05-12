@@ -4,7 +4,7 @@ import axios from "axios";
 import "./login.css";
 import Swal from "sweetalert2";
 
-export const Login = ({ setUid, setVerificationCode }) => {
+export const Login = ({ setUid, setVerificationCode, setValue }) => {
   const [loginValues, setLoginValues] = useState({
     lemail: "",
     lpassword: "",
@@ -32,11 +32,13 @@ export const Login = ({ setUid, setVerificationCode }) => {
       )
       .then((res) => {
         if (res.data.ok === true) {
-          document.cookie = `uid=${res.data.user.uid}`;
+          console.log(res.data.user.uid);
+          setValue(res.data.user.uid);
+          // document.cookie = `uid=${res.data.user.uid}`;
           setVerificationCode(res.data.user.verificationCode);
           setTimeout(() => {
             setUid(res.data.user.uid);
-          }, 500);
+          }, 1000);
         } else {
           Swal.fire(res.data.msg, "", "info");
         }

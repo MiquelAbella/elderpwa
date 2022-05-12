@@ -7,6 +7,28 @@ import { Login } from "./components/login/Login";
 import { Main } from "./components/main/Main";
 
 function App() {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const value = window.localStorage.getItem("uid");
+
+      if (value) {
+        return JSON.parse(value);
+      } else {
+        window.localStorage.setItem("uid", JSON.stringify(""));
+        return "";
+      }
+    } catch (err) {
+      return "";
+    }
+  });
+
+  const setValue = (newValue) => {
+    try {
+      window.localStorage.setItem("uid", JSON.stringify(newValue));
+    } catch (err) {}
+    setStoredValue(newValue);
+  };
+
   const getCookie = (cname) => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -23,9 +45,7 @@ function App() {
     return "";
   };
 
-  const [uid, setUid] = useState(() =>
-    getCookie("uid") ? getCookie("uid") : null
-  );
+  const [uid, setUid] = useState(() => (storedValue ? storedValue : null));
 
   const [verificationCode, setVerificationCode] = useState(null);
 
@@ -37,6 +57,7 @@ function App() {
             path="/"
             element={
               <Login
+                setValue={setValue}
                 setUid={setUid}
                 setVerificationCode={setVerificationCode}
               />
