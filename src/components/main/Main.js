@@ -116,7 +116,7 @@ export const Main = ({ verificationCode, uid }) => {
           <button
             className="close-btn"
             onClick={() => {
-              alert('closing')
+              window.close();
             }}
           >
             <img alt="" src={closeImg} />
