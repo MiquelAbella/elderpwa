@@ -113,7 +113,12 @@ export const Main = ({ verificationCode, uid }) => {
           <button className="speak-btn" onClick={speak}>
             <img alt="" src={speechImg} />
           </button>
-          <button className="close-btn" onClick={speak}>
+          <button
+            className="close-btn"
+            onClick={() => {
+              window.close();
+            }}
+          >
             <img alt="" src={closeImg} />
           </button>
         </>
