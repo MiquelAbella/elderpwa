@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.speak-btn {
+  border-radius: 2%;
+  border: none;
+  outline: none;
+  background-color: rgb(89, 89, 255);
+  width: 80vw;
+  height: 40vh;
+}
+
+.speak-btn img {
+  height: 40%;
+}
+
+.close-btn {
+  border-radius: 2%;
+  border: none;
+  outline: none;
+  background-color: rgb(255, 89, 89);
+  width: 80vw;
+  height: 40vh;
+}
+
+.close-btn img {
+  height: 40%;
+}
