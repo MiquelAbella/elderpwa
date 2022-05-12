@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/elderpwa/static/css/main.2e0a73b5.css",
+    "main.js": "/elderpwa/static/js/main.161c6946.js",
+    "static/js/787.49970c7d.chunk.js": "/elderpwa/static/js/787.49970c7d.chunk.js",
+    "static/media/closeImg.png": "/elderpwa/static/media/closeImg.ac87928f25805b1f5908.png",
+    "service-worker.js": "/elderpwa/service-worker.js",
+    "static/media/speechImg.png": "/elderpwa/static/media/speechImg.114ddcfcdec0ebc2909c.png",
+    "index.html": "/elderpwa/index.html",
+    "main.2e0a73b5.css.map": "/elderpwa/static/css/main.2e0a73b5.css.map",
+    "main.161c6946.js.map": "/elderpwa/static/js/main.161c6946.js.map",
+    "787.49970c7d.chunk.js.map": "/elderpwa/static/js/787.49970c7d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e0a73b5.css",
+    "static/js/main.161c6946.js"
+  ]
+}
