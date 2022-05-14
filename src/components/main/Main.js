@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./main.css";
 import axios from "axios";
 import speechImg from "./speechImg.png";
-import closeImg from "./closeImg.png";
 
 export const Main = ({ verificationCode, uid }) => {
   const [schedule, setSchedule] = useState({});
@@ -15,8 +14,9 @@ export const Main = ({ verificationCode, uid }) => {
 
   useEffect(() => {
     axios
-      .post("https://elderpalmira.herokuapp.com/api/auth/getSchedule", { uid })
+      .post("http://localhost:5000/api/auth/getSchedule", { uid })
       .then((res) => {
+        console.log(res);
         setSchedule(res.data.schedule);
       });
   }, []);
@@ -30,7 +30,7 @@ export const Main = ({ verificationCode, uid }) => {
   useEffect(() => {
     if (text.length > 5 && coords.length === 2) {
       axios
-        .post("https://elderpalmira.herokuapp.com/api/auth/postInfo", {
+        .post("http://localhost:5000/api/auth/postInfo", {
           uid,
           text,
           coords,
@@ -112,14 +112,6 @@ export const Main = ({ verificationCode, uid }) => {
         <>
           <button className="speak-btn" onClick={speak}>
             <img alt="" src={speechImg} />
-          </button>
-          <button
-            className="close-btn"
-            onClick={() => {
-              window.close();
-            }}
-          >
-            <img alt="" src={closeImg} />
           </button>
         </>
       ) : (

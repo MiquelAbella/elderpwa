@@ -27,7 +27,7 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
     e.preventDefault();
     axios
       .post(
-        "https://elderpalmira.herokuapp.com/api/auth/loginUser",
+        "http://localhost:5000/api/auth/loginUser",
         loginValues
       )
       .then((res) => {
@@ -48,7 +48,7 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
     e.preventDefault();
     axios
       .post(
-        "https://elderpalmira.herokuapp.com/api/auth/createUser",
+        "http://localhost:5000/api/auth/createUser",
         registerValues
       )
       .then((res) => {
