@@ -7,46 +7,45 @@ import { Login } from "./components/login/Login";
 import { Main } from "./components/main/Main";
 
 function App() {
-  // const [storedValue, setStoredValue] = useState(() => {
-  //   try {
-  //     const value = window.localStorage.getItem("uid");
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const value = window.localStorage.getItem("uid");
 
-  //     if (value) {
-  //       return JSON.parse(value);
-  //     } else {
-  //       window.localStorage.setItem("uid", JSON.stringify(""));
-  //       return "";
-  //     }
-  //   } catch (err) {
-  //     return "";
-  //   }
-  // });
+      if (value) {
+        return JSON.parse(value);
+      } else {
+        window.localStorage.setItem("uid", JSON.stringify(""));
+        return "";
+      }
+    } catch (err) {
+      return "";
+    }
+  });
 
   const setValue = (newValue) => {
     try {
       window.localStorage.setItem("uid", JSON.stringify(newValue));
     } catch (err) {}
-    // setStoredValue(newValue);
+    setStoredValue(newValue);
   };
 
-  // const getCookie = (cname) => {
-  //   let name = cname + "=";
-  //   let decodedCookie = decodeURIComponent(document.cookie);
-  //   let ca = decodedCookie.split(";");
-  //   for (let i = 0; i < ca.length; i++) {
-  //     let c = ca[i];
-  //     while (c.charAt(0) === " ") {
-  //       c = c.substring(1);
-  //     }
-  //     if (c.indexOf(name) === 0) {
-  //       return c.substring(name.length, c.length);
-  //     }
-  //   }
-  //   return "";
-  // };
+  const getCookie = (cname) => {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  };
 
-  // const [uid, setUid] = useState(() => (storedValue ? storedValue : null));
-  const [uid, setUid] = useState(null);
+  const [uid, setUid] = useState(() => (storedValue ? storedValue : null));
 
   const [verificationCode, setVerificationCode] = useState(null);
 
