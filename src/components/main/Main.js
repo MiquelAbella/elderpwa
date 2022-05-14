@@ -68,9 +68,18 @@ export const Main = ({ verificationCode, uid }) => {
       let hour = new Date().getHours();
       let minutes = new Date().getMinutes();
 
-      let textToSpeak = Object.entries(schedule[Object.keys(schedule)[day]])[
-        hour + 1
-      ][1];
+      console.log(Object.entries(schedule[Object.keys(schedule)[day]])[hour]);
+      console.log(schedule);
+      let textToSpeak = "";
+      if (hour === 23 && day === 6) {
+        textToSpeak = Object.entries(schedule[Object.keys(schedule)[0]])[0][1];
+      } else if (hour === 23) {
+        textToSpeak = Object.entries(schedule[Object.keys(schedule)[day+1]])[0][1];
+      } else {
+        textToSpeak = Object.entries(schedule[Object.keys(schedule)[day]])[
+          hour + 1
+        ][1];
+      }
 
       let voice = new SpeechSynthesisUtterance(
         `${
