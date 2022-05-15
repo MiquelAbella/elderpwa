@@ -65,3 +65,45 @@
 .swal2-confirm {
   font-family: "Roboto";
 }
+
+@media (min-width: 700px) {
+  .app-name {
+    font-size: 8vw;
+  }
+
+  .app-slogan {
+    font-size: 1.5vw;
+  }
+
+  .elder-form {
+    height: 40vh;
+    width: 40vw;
+    padding: 4vw;
+  }
+
+  .elder-form h1 {
+    font-size: 3vw;
+  }
+
+  .elder-form input {
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    width: 70%;
+  }
+
+  .elder-form button {
+    font-size: 1.5vw;
+    width: 30%;
+  }
+
+  .elder-form p {
+    font-size: 1.5vw;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  .swal2-title,
+  .swal2-confirm {
+    font-family: "Roboto";
+  }
+}
