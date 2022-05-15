@@ -32,9 +32,9 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
       )
       .then((res) => {
         if (res.data.ok === true) {
-          console.log(res.data.user.uid);
+          console.log(res.data.user);
           setValue(res.data.user.uid);
-          // document.cookie = `uid=${res.data.user.uid}`;
+          document.cookie = `uid=${res.data.user.uid}`;
           setVerificationCode(res.data.user.verificationCode);
           setTimeout(() => {
             setUid(res.data.user.uid);

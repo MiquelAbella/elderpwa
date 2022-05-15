@@ -10,30 +10,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: rgb(226, 226, 254);
 }
 
 .speak-btn {
-  border-radius: 2%;
+  border-radius: 50%;
   border: none;
   outline: none;
   background-color: rgb(89, 89, 255);
-  width: 80vw;
-  height: 40vh;
+  width: 90vw;
+  height: 90vw;
+  box-shadow: 0px 25px 15px 0px #919191;
+}
+
+.speak-btn:active{
+  transform: scale(0.99) translateY(0.1vh);
+  box-shadow: 0px 20px 15px 0px #919191;
 }
 
 .speak-btn img {
-  height: 40%;
+  width: 40%;
 }
 
-.close-btn {
-  border-radius: 2%;
-  border: none;
-  outline: none;
-  background-color: rgb(255, 89, 89);
-  width: 80vw;
-  height: 40vh;
+
+.call-btn {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 3vh;
+  box-shadow: 0px 10px 10px 0px #919191;
 }
 
-.close-btn img {
-  height: 40%;
+.call-btn img {
+  height: 100%;
 }

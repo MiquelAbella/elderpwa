@@ -68,13 +68,13 @@ export const Main = ({ verificationCode, uid }) => {
       let hour = new Date().getHours();
       let minutes = new Date().getMinutes();
 
-      console.log(Object.entries(schedule[Object.keys(schedule)[day]])[hour]);
-      console.log(schedule);
       let textToSpeak = "";
       if (hour === 23 && day === 6) {
         textToSpeak = Object.entries(schedule[Object.keys(schedule)[0]])[0][1];
       } else if (hour === 23) {
-        textToSpeak = Object.entries(schedule[Object.keys(schedule)[day+1]])[0][1];
+        textToSpeak = Object.entries(
+          schedule[Object.keys(schedule)[day + 1]]
+        )[0][1];
       } else {
         textToSpeak = Object.entries(schedule[Object.keys(schedule)[day]])[
           hour + 1
@@ -122,12 +122,14 @@ export const Main = ({ verificationCode, uid }) => {
           <button className="speak-btn" onClick={speak}>
             <img alt="" src={speechImg} />
           </button>
-          <a href='tel:+34628869177'>truca</a>
+          <a className="call-btn" href="tel:+34628869177">
+            <img src="https://freesvg.org/img/phone-call-icon.png" />
+          </a>
         </>
       ) : (
         <h1>Encara no s'ha planificat</h1>
       )}
-      <p>Codi de verificació: {verificationCode}</p>
+      {verificationCode && <p>Codi de verificació: {verificationCode}</p>}
     </div>
   );
 };
