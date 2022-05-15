@@ -122,6 +122,7 @@ export const Main = ({ verificationCode, uid }) => {
           <button className="speak-btn" onClick={speak}>
             <img alt="" src={speechImg} />
           </button>
+          <a href='tel:+34628869177'>truca</a>
         </>
       ) : (
         <h1>Encara no s'ha planificat</h1>
