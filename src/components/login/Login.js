@@ -4,7 +4,13 @@ import axios from "axios";
 import "./login.css";
 import Swal from "sweetalert2";
 
-export const Login = ({ setUid, setVerificationCode, setValue }) => {
+export const Login = ({
+  setUid,
+  setVerificationCode,
+  setValue,
+  setPhone,
+  setPhoneValue,
+}) => {
   const [loginValues, setLoginValues] = useState({
     lemail: "",
     lpassword: "",
@@ -12,6 +18,7 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
   const [registerValues, setRegisterValues] = useState({
     remail: "",
     rpassword: "",
+    rphone: "",
   });
 
   const [showLogin, setShowLogin] = useState(true);
@@ -32,7 +39,8 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
       )
       .then((res) => {
         if (res.data.ok === true) {
-          console.log(res.data.user);
+          setPhone(res.data.user.phone);
+          setPhoneValue(res.data.user.phone);
           setValue(res.data.user.uid);
           document.cookie = `uid=${res.data.user.uid}`;
           setVerificationCode(res.data.user.verificationCode);
@@ -53,7 +61,9 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
       )
       .then((res) => {
         if (res.data.ok === true) {
-          document.cookie = `uid=${res.data.uid}`;
+          console.log(res.data);
+          setValue(res.data.uid);
+          setPhoneValue(res.data.phone);
           setVerificationCode(res.data.verificationCode);
           setTimeout(() => {
             setUid(res.data.uid);
@@ -108,6 +118,7 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
             value={registerValues.remail}
             onChange={handleRegisterChange}
             placeholder="Email del cuidador"
+            required
           />
           <input
             type="password"
@@ -115,6 +126,15 @@ export const Login = ({ setUid, setVerificationCode, setValue }) => {
             value={registerValues.rpassword}
             onChange={handleRegisterChange}
             placeholder="Clau"
+            required
+          />
+          <input
+            type="tel"
+            name="rphone"
+            value={registerValues.rphone}
+            onChange={handleRegisterChange}
+            placeholder="Tlf cuidador"
+            required
           />
           <button type="submit">Registra't</button>
           <p

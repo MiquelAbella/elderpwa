@@ -29,25 +29,33 @@ function App() {
     setStoredValue(newValue);
   };
 
-  const getCookie = (cname) => {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === " ") {
-        c = c.substring(1);
+  const [storedPhone, setStoredPhone] = useState(() => {
+    try {
+      const value = window.localStorage.getItem("phone");
+
+      if (value) {
+        return JSON.parse(value);
+      } else {
+        window.localStorage.setItem("phone", JSON.stringify(""));
+        return "";
       }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
+    } catch (err) {
+      return "";
     }
-    return "";
+  });
+
+  const setPhoneValue = (newValue) => {
+    try {
+      window.localStorage.setItem("phone", JSON.stringify(newValue));
+    } catch (err) {}
+    setStoredPhone(newValue);
   };
 
   const [uid, setUid] = useState(() => (storedValue ? storedValue : null));
 
   const [verificationCode, setVerificationCode] = useState(null);
+
+  const [phone, setPhone] = useState(() => (storedPhone ? storedPhone : null));
 
   return (
     <div className="App">
@@ -57,7 +65,9 @@ function App() {
             path="/"
             element={
               <Login
+                setPhone={setPhone}
                 setValue={setValue}
+                setPhoneValue={setPhoneValue}
                 setUid={setUid}
                 setVerificationCode={setVerificationCode}
               />
@@ -67,7 +77,13 @@ function App() {
         <Route path="/main" element={<ProtectedRoutes uid={uid} />}>
           <Route
             path="/main"
-            element={<Main verificationCode={verificationCode} uid={uid} />}
+            element={
+              <Main
+                verificationCode={verificationCode}
+                uid={uid}
+                phone={phone}
+              />
+            }
           />
         </Route>
       </Routes>

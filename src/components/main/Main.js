@@ -3,7 +3,7 @@ import "./main.css";
 import axios from "axios";
 import speechImg from "./speechImg.png";
 
-export const Main = ({ verificationCode, uid }) => {
+export const Main = ({ verificationCode, uid, phone }) => {
   const [schedule, setSchedule] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -122,7 +122,7 @@ export const Main = ({ verificationCode, uid }) => {
           <button className="speak-btn" onClick={speak}>
             <img alt="" src={speechImg} />
           </button>
-          <a className="call-btn" href="tel:+34628869177">
+          <a className="call-btn" href={`tel:+34${phone}`}>
             <img src="https://freesvg.org/img/phone-call-icon.png" />
           </a>
         </>
