@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/elderpwa/static/css/main.eecce4dc.css",
-    "main.js": "/elderpwa/static/js/main.97e7fdf9.js",
+    "main.css": "/elderpwa/static/css/main.e024499a.css",
+    "main.js": "/elderpwa/static/js/main.3ece55b2.js",
     "static/js/787.49970c7d.chunk.js": "/elderpwa/static/js/787.49970c7d.chunk.js",
     "service-worker.js": "/elderpwa/service-worker.js",
-    "static/media/speechImg.png": "/elderpwa/static/media/speechImg.114ddcfcdec0ebc2909c.png",
+    "static/media/speechImg.png": "/elderpwa/static/media/speechImg.1e868cccbd86013c3463.png",
     "index.html": "/elderpwa/index.html",
-    "main.eecce4dc.css.map": "/elderpwa/static/css/main.eecce4dc.css.map",
-    "main.97e7fdf9.js.map": "/elderpwa/static/js/main.97e7fdf9.js.map",
+    "main.e024499a.css.map": "/elderpwa/static/css/main.e024499a.css.map",
+    "main.3ece55b2.js.map": "/elderpwa/static/js/main.3ece55b2.js.map",
     "787.49970c7d.chunk.js.map": "/elderpwa/static/js/787.49970c7d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eecce4dc.css",
-    "static/js/main.97e7fdf9.js"
+    "static/css/main.e024499a.css",
+    "static/js/main.3ece55b2.js"
   ]
 }
