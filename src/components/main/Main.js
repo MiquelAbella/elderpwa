@@ -109,7 +109,7 @@ export const Main = ({ verificationCode, uid, phone }) => {
         } `
       );
      
-      voice.voice = speechSynthesis.getVoices()[2]
+      voice.voice = speechSynthesis.getVoices()[5]
       speechSynthesis.speak(voice);
       setText(voice.text);
     }
