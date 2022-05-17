@@ -61,7 +61,6 @@ export const Login = ({
       )
       .then((res) => {
         if (res.data.ok === true) {
-          console.log(res.data);
           setValue(res.data.uid);
           setPhoneValue(res.data.phone);
           setVerificationCode(res.data.verificationCode);
