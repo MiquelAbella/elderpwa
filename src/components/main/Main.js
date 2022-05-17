@@ -108,8 +108,7 @@ export const Main = ({ verificationCode, uid, phone }) => {
           textToSpeak ? textToSpeak : "haz lo que te apetezca"
         } `
       );
-     
-      voice.voice = speechSynthesis.getVoices()[5]
+
       speechSynthesis.speak(voice);
       setText(voice.text);
     }
