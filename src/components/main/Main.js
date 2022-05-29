@@ -99,11 +99,11 @@ export const Main = ({ verificationCode, uid, phone }) => {
             : day === 5
             ? "Viernes"
             : "Sabado"
-        } , son las ${hour} horas y ${minutes} minutos, a las ${hour + 1} ${
+        } , son las ${hour} horas y ${minutes} minutos, ${
           textToSpeak ? textToSpeak : "haz lo que te apetezca"
         } `
       );
-
+      voice.rate = 0.75;
       speechSynthesis.speak(voice);
       setText(voice.text);
     }
